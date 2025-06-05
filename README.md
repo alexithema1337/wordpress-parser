@@ -19,11 +19,11 @@ Sebuah skrip Python sederhana untuk mengekstrak kombinasi kredensial WordPress d
 ✅ Menangkap kombinasi **URL + username + password** dari berbagai format:
 ```
 
-[https://site.com/wp-login.php\:user\:pass](https://site.com/wp-login.php:user:pass)
-[https://site.com/wp-login.php|user|pass](https://site.com/wp-login.php|user|pass)
-[https://site.com/wp-login.php#user@pass](https://site.com/wp-login.php#user@pass)
-[https://site.com/wp-login.php#user@pass@extra](https://site.com/wp-login.php#user@pass@extra)
-[https://site.com/wp-login.php](https://site.com/wp-login.php) : user : pass
+[https://site.com/wp-login.php\:user\:pass] (https://site.com/wp-login.php:user:pass)
+[https://site.com/wp-login.php|user|pass] (https://site.com/wp-login.php|user|pass)
+[https://site.com/wp-login.php#user@pass] (https://site.com/wp-login.php#user@pass)
+[https://site.com/wp-login.php#user@pass@extra] (https://site.com/wp-login.php#user@pass@extra)
+[https://site.com/wp-login.php] (https://site.com/wp-login.php) : user : pass
 
 ````
 
