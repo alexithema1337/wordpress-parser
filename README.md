@@ -69,9 +69,9 @@ Setiap hasil yang ditemukan akan dicetak ke terminal dan disimpan ke file output
 Contoh hasil di `result.txt`:
 
 ```
-https://example.com/wp-login.php|admin|password123
-https://site.net/wp-login.php|root|toor
-https://another.net/wp-login.php|user|pass
+https://example.com/wp-login.php#admin@password123
+https://site.net/wp-login.php#roo@toor
+https://another.net/wp-login.php#user@pass
 ```
 
 ---
