@@ -3,7 +3,7 @@
 ---
 
 ## 📸 Screenshot  
-![WP Credential Extractor Screenshot]([screenshot.png](https://raw.githubusercontent.com/alexithema1337/wordpress-parser/refs/heads/main/preview.png))  
+![WP Credential Extractor Screenshot](https://raw.githubusercontent.com/alexithema1337/wordpress-parser/refs/heads/main/preview.png)  
 
 ---
 
