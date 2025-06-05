@@ -48,8 +48,6 @@ Sebuah skrip Python sederhana untuk mengekstrak kombinasi kredensial WordPress d
 - Modul:
   ```bash
   pip install colorama
-````
-
 ---
 
 ## 🚀 Cara Pakai
