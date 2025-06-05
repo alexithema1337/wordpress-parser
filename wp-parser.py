@@ -2,79 +2,80 @@ import os #line:1
 import re #line:2
 import threading #line:3
 import platform #line:4
-from colorama import init ,Fore #line:5
+from colorama import init ,Fore ,Style #line:5
 init (autoreset =True )#line:7
-def parse_credentials (OO0OO000O00O00000 ,OOOO000OO000O00O0 ,O0OO0O00O0OO0O0O0 ,O000O0O00O0OOO0O0 ):#line:9
-    O0O0000O0OO0000OO =[r'(https?://[^\s]*wp-login\.php):([^\s:]+):([^\s:]+)',r'(https?://[^\s]*wp-login\.php)\|([^\s|]+)\|([^\s|]+)',r'(https?://[^\s]*wp-login\.php)#([^\s@]+)@([^\s@]+)',r'(https?://[^\s]*wp-login\.php)#([^\s@]+)@([^\s@]+)@([^\s@]+)',r'(https?://[^\s]*wp-login\.php)\s*:\s*([^\s:]+)\s*:\s*([^\s:]+)']#line:16
+def parse_credentials (O00O0OO0OO0000O00 ,OOO000O0OO0OOO00O ,O0OOOO0O00O0OOOO0 ,O0O00O0OO0OO0O0OO ):#line:9
+    O0000OOOOO0OOOOO0 =[r'(https?://[^\s]*wp-login\.php):([^\s:]+):([^\s:]+)',r'(https?://[^\s]*wp-login\.php)\|([^\s|]+)\|([^\s|]+)',r'(https?://[^\s]*wp-login\.php)#([^\s@]+)@([^\s@]+)',r'(https?://[^\s]*wp-login\.php)#([^\s@]+)@([^\s@]+)@([^\s@]+)',r'(https?://[^\s]*wp-login\.php)\s*:\s*([^\s:]+)\s*:\s*([^\s:]+)']#line:16
     try :#line:18
-        with open (OO0OO000O00O00000 ,'r',encoding ='utf-8',errors ='ignore')as O0000OO000O0O0OO0 :#line:19
-            for OO0000000000OOOOO in O0000OO000O0O0OO0 :#line:20
-                for OOOO000OO000OOO00 in O0O0000O0OO0000OO :#line:21
+        with open (O00O0OO0OO0000O00 ,'r',encoding ='utf-8',errors ='ignore')as OOOO0OO0O0000000O :#line:19
+            for OOO000O0O0O0O00O0 in OOOO0OO0O0000000O :#line:20
+                for O0OO0000OOO00O000 in O0000OOOOO0OOOOO0 :#line:21
                     try :#line:22
-                        OOOOO00O0O00000OO =re .findall (OOOO000OO000OOO00 ,OO0000000000OOOOO ,re .IGNORECASE )#line:23
-                        for OOOOO0OOO0O0OO00O in OOOOO00O0O00000OO :#line:24
-                            OO0O0O0OO0OO0O0OO =OOOOO0OOO0O0OO00O [0 ]#line:25
-                            with O0OO0O00O0OO0O0O0 :#line:26
-                                if len (OOOOO0OOO0O0OO00O )==3 :#line:27
-                                    O0O0OOO000OO00000 =f"{OO0O0O0OO0OO0O0OO}|{OOOOO0OOO0O0OO00O[1]}|{OOOOO0OOO0O0OO00O[2]}"#line:28
-                                elif len (OOOOO0OOO0O0OO00O )==4 :#line:29
-                                    O0O0OOO000OO00000 =f"{OO0O0O0OO0OO0O0OO}|{OOOOO0OOO0O0OO00O[1]}|{OOOOO0OOO0O0OO00O[2]}@{OOOOO0OOO0O0OO00O[3]}"#line:30
-                                if O0O0OOO000OO00000 not in OOOO000OO000O00O0 :#line:31
-                                    OOOO000OO000O00O0 .add (O0O0OOO000OO00000 )#line:32
-                                    print (f"{Fore.YELLOW}[ {Fore.RESET}Found {Fore.YELLOW}]{Fore.RESET} {O0O0OOO000OO00000} {Fore.RESET}| {Fore.GREEN}[ FOUND ]{Fore.RESET}")#line:33
-                                    with open (O000O0O00O0OOO0O0 ,'a',encoding ='utf-8')as O000OO0OOO0OOO0OO :#line:34
-                                        O000OO0OOO0OOO0OO .write (O0O0OOO000OO00000 +'\n')#line:35
-                    except re .error as OOOO00OOOOO000OO0 :#line:36
-                        print (f"{Fore.RED}[!] Regex error in {OO0OO000O00O00000} for pattern {OOOO000OO000OOO00}: {OOOO00OOOOO000OO0}{Fore.RESET}")#line:37
-    except Exception as O0O0O00OO0000O0OO :#line:38
-        print (f"{Fore.RED}[!] Error reading {OO0OO000O00O00000}: {O0O0O00OO0000O0OO}{Fore.RESET}")#line:39
-def extract_credentials_from_folder (O00OO000OO0OO0OO0 ,OOOO0OO000OO0O0OO ,OOOO0OOO0OOO000O0 ):#line:41
-    open (OOOO0OO000OO0O0OO ,'w',encoding ='utf-8').close ()#line:42
-    OOO00OO0OOOO00000 =set ()#line:43
-    O00OO0O00000OOOO0 =threading .Lock ()#line:44
-    OOO00O00000O00O0O =[]#line:45
-    OOOO0O00O00O0O0OO =[O0OO000OO00O0OOOO for O0OO000OO00O0OOOO in os .listdir (O00OO000OO0OO0OO0 )if O0OO000OO00O0OOOO .endswith ('.txt')]#line:46
-    if not OOOO0O00O00O0O0OO :#line:48
-        print (f"{Fore.RED}[!] Tidak ada file .txt di {O00OO000OO0OO0OO0}.{Fore.RESET}")#line:49
-        return #line:50
-    def OOO00OO0O0O00OO00 ():#line:52
-        while OOOO0O00O00O0O0OO :#line:53
-            O0OOOOOOOO0O0000O =OOOO0O00O00O0O0OO .pop ()#line:54
-            OOO00OO0O000OO0OO =os .path .join (O00OO000OO0OO0OO0 ,O0OOOOOOOO0O0000O )#line:55
-            print (f"{Fore.CYAN}[*] Memproses {OOO00OO0O000OO0OO}...{Fore.RESET}")#line:56
-            parse_credentials (OOO00OO0O000OO0OO ,OOO00OO0OOOO00000 ,O00OO0O00000OOOO0 ,OOOO0OO000OO0O0OO )#line:57
-    for _O00O0OO0O0OOO0O0O in range (min (OOOO0OOO0OOO000O0 ,len (OOOO0O00O00O0O0OO ))):#line:59
-        O0OO000OO0OO0O000 =threading .Thread (target =OOO00OO0O0O00OO00 )#line:60
-        OOO00O00000O00O0O .append (O0OO000OO0OO0O000 )#line:61
-        O0OO000OO0OO0O000 .start ()#line:62
-    for O0OO000OO0OO0O000 in OOO00O00000O00O0O :#line:64
-        O0OO000OO0OO0O000 .join ()#line:65
-    print (f"{Fore.GREEN}Extraction complete. {len(OOO00OO0OOOO00000)} credentials saved to {OOOO0OO000OO0O0OO}{Fore.RESET}")#line:67
+                        OOO0000O0OOOOOOOO =re .findall (O0OO0000OOO00O000 ,OOO000O0O0O0O00O0 ,re .IGNORECASE )#line:23
+                        for O0O0O0OO0O0O00O00 in OOO0000O0OOOOOOOO :#line:24
+                            OOO000OOOO00OOO0O =O0O0O0OO0O0O00O00 [0 ]#line:25
+                            with O0OOOO0O00O0OOOO0 :#line:26
+                                if len (O0O0O0OO0O0O00O00 )==3 :#line:27
+                                    O000O0OOO0O0O0OO0 =f"{OOO000OOOO00OOO0O}@{O0O0O0OO0O0O00O00[1]}#{O0O0O0OO0O0O00O00[2]}"#line:28
+                                elif len (O0O0O0OO0O0O00O00 )==4 :#line:29
+                                    O000O0OOO0O0O0OO0 =f"{OOO000OOOO00OOO0O}@{O0O0O0OO0O0O00O00[1]}#{O0O0O0OO0O0O00O00[2]}@{O0O0O0OO0O0O00O00[3]}"#line:30
+                                if O000O0OOO0O0O0OO0 not in OOO000O0OO0OOO00O :#line:31
+                                    OOO000O0OO0OOO00O .add (O000O0OOO0O0O0OO0 )#line:32
+                                    print (f"{Style.RESET_ALL}[{Fore.GREEN}+{Style.RESET_ALL}] {O000O0OOO0O0O0OO0} {Style.RESET_ALL}[ {Fore.GREEN}FOUND{Style.RESET_ALL} ]")#line:34
+                                    with open (O0O00O0OO0OO0O0OO ,'a',encoding ='utf-8')as OOOOOO00OO0O0O0OO :#line:35
+                                        OOOOOO00OO0O0O0OO .write (f"{O000O0OOO0O0O0OO0}\n")#line:36
+                    except re .error as OOOOO0O0O000O0O00 :#line:37
+                        print (f"{Style.RESET_ALL}[{Fore.RED}!{Style.RESET_ALL}] Regex error in {O00O0OO0OO0000O00} for pattern {O0OO0000OOO00O000}: {OOOOO0O0O000O0O00}")#line:38
+    except Exception as OO0000OO000OOOO0O :#line:39
+        print (f"{Style.RESET_ALL}[{Fore.RED}!{Style.RESET_ALL}] Error reading {O00O0OO0OO0000O00}: {OO0000OO000OOOO0O}")#line:40
+def extract_credentials_from_folder (OOO00000OO00O000O ,OO0OO00OOOOOOOOOO ,O0OO0OOO00OO0OOO0 ):#line:42
+    open (OO0OO00OOOOOOOOOO ,'w',encoding ='utf-8').close ()#line:43
+    O000OOO0OO00O0O0O =set ()#line:44
+    O0OO0O0O00O00OO0O =threading .Lock ()#line:45
+    O0OO00OOOOOOOOOOO =[]#line:46
+    O000000OO0O0OOO0O =[OOO0OO0O0000OO00O for OOO0OO0O0000OO00O in os .listdir (OOO00000OO00O000O )if OOO0OO0O0000OO00O .endswith ('.txt')]#line:47
+    if not O000000OO0O0OOO0O :#line:49
+        print (f"{Style.RESET_ALL}[{Fore.RED}!{Style.RESET_ALL}] Tidak ada file .txt di {OOO00000OO00O000O}.")#line:50
+        return #line:51
+    def O000000OOOOOOO0OO ():#line:53
+        while O000000OO0O0OOO0O :#line:54
+            OO0000OOOOO0OO000 =O000000OO0O0OOO0O .pop ()#line:55
+            O0O0O00000OOO00OO =os .path .join (OOO00000OO00O000O ,OO0000OOOOO0OO000 )#line:56
+            parse_credentials (O0O0O00000OOO00OO ,O000OOO0OO00O0O0O ,O0OO0O0O00O00OO0O ,OO0OO00OOOOOOOOOO )#line:57
+    for _OO0O000000000OO00 in range (min (O0OO0OOO00OO0OOO0 ,len (O000000OO0O0OOO0O ))):#line:59
+        O0O000O00OO0OO000 =threading .Thread (target =O000000OOOOOOO0OO )#line:60
+        O0OO00OOOOOOOOOOO .append (O0O000O00OO0OO000 )#line:61
+        O0O000O00OO0OO000 .start ()#line:62
+    for O0O000O00OO0OO000 in O0OO00OOOOOOOOOOO :#line:64
+        O0O000O00OO0OO000 .join ()#line:65
+    print (f"{Fore.GREEN}Hasil disimpan ke {OO0OO00OOOOOOOOOO}{Style.RESET_ALL}")#line:67
 def main ():#line:69
-    if platform .system ()=="Windows":#line:70
-        os .system ('cls')#line:71
-    else :#line:72
-        os .system ('clear')#line:73
+    if platform .system ()=="Windows":#line:71
+        os .system ('cls')#line:72
+    else :#line:73
+        os .system ('clear')#line:74
     print (f"""
-{Fore.YELLOW}
+{Fore.WHITE}
  ██████╗ ██╗  ██╗███████╗ █████╗ ██╗     ███████╗██╗  ██╗██╗████████╗██╗  ██╗███████╗███╗   ███╗ █████╗ 
 ██╔═══██╗╚██╗██╔╝╚════██║██╔══██╗██║     ██╔════╝╚██╗██╔╝██║╚══██╔══╝██║  ██║██╔════╝████╗ ████║██╔══██╗
 ██║   ██║ ╚███╔╝    ██╔╝ ███████║██║     █████╗   ╚███╔╝ ██║   ██║   ███████║█████╗  ██╔████╔██║███████║
 ██║   ██║ ██╔██╗   ██╔╝  ██╔══██║██║     ██╔══╝   ██╔██╗ ██║   ██║   ██╔══██║██╔══╝  ██║╚██╔╝██║██╔══██║
 ╚██████╔╝██╔╝ ██╗  ██║   ██║  ██║███████╗███████╗██╔╝ ██╗██║   ██║   ██║  ██║███████╗██║ ╚═╝ ██║██║  ██║
  ╚═════╝ ╚═╝  ╚═╝  ╚═╝   ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝
-{Fore.RESET}
-    """)#line:84
-    O0000O00O00OOOOO0 =input ("Masukkan directory yang berisi .txt: ")#line:86
-    O0OO00O000000O000 =input ("Masukkan nama result (example: result.txt): ")#line:87
-    OO0000OO0O0O0O0OO =int (input ("Masukkan jumlah threads: "))#line:88
-    OOOOOO0OOO00O0O00 =input ("Mamulakan scan! Adakah kamu mau melanjutkan? (y/n): ").strip ().lower ()#line:89
-    if OOOOOO0OOO00O0O00 !='y':#line:91
-        print (f"{Fore.RED}Scan dibatalkan.{Fore.RESET}")#line:92
-        return #line:93
-    if not os .path .isdir (O0000O00O00OOOOO0 ):#line:95
-        print (f"{Fore.RED}[!] Directory {O0000O00O00OOOOO0} tidak valid.{Fore.RESET}")#line:96
+
+ > KALO ADA ERROR KE ALEX ASMODEUS AJA DIA YANG BUAT TOOLS INI
+{Style.RESET_ALL}
+    """)#line:88
+    O00O0000O0O00000O =input ("Masukkan directory yang berisi .txt: ").strip ()#line:90
+    O0000000OO0O0OOOO =input ("Masukkan nama result (example: result.txt): ").strip ()#line:91
+    O0O0O0OOO0O000OOO =int (input ("Masukkan Threads: "))#line:92
+    O0OOOO0OOO000OO0O =input ("Mamulakan scan! Adakah kamu mau melanjutkan? (y/n): ").strip ().lower ()#line:93
+    if O0OOOO0OOO000OO0O !='y':#line:95
+        print (f"{Style.RESET_ALL}[{Fore.RED}!{Style.RESET_ALL}] Scan dibatalkan.")#line:96
         return #line:97
-    extract_credentials_from_folder (O0000O00O00OOOOO0 ,O0OO00O000000O000 ,OO0000OO0O0O0O0OO )#line:99
-if __name__ =="__main__":#line:101
+    if not os .path .isdir (O00O0000O0O00000O ):#line:99
+        print (f"{Style.RESET_ALL}[{Fore.RED}!{Style.RESET_ALL}] Directory {O00O0000O0O00000O} tidak valid.")#line:100
+        return #line:101
+    extract_credentials_from_folder (O00O0000O0O00000O ,O0000000OO0O0OOOO ,O0O0O0OOO0O000OOO )#line:103
+if __name__ =="__main__":#line:105
     main ()
