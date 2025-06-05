@@ -1,34 +1,53 @@
 # 🔐 WP Credential Extractor
 
-Skrip Python untuk mengekstrak kombinasi credential dari file `.txt` berdasarkan beberapa pola login WordPress (`wp-login.php`) di dalam sebuah folder.
+---
+
+## 📸 Screenshot  
+![WP Credential Extractor Screenshot](screenshot.png)  
+
+---
+
+## 📖 Deskripsi  
+
+Sebuah skrip Python sederhana untuk mengekstrak kombinasi kredensial WordPress dari file-file `.txt` berdasarkan berbagai pola URL login (`wp-login.php`) dalam sebuah folder.
 
 ---
 
 ## 📌 Fitur
 
-- Scan file-file `.txt` dalam folder yang ditentukan
-- Menangkap kombinasi URL + username + password dalam berbagai format:
-  - `https://site.com/wp-login.php:user:pass`
-  - `https://site.com/wp-login.php|user|pass`
-  - `https://site.com/wp-login.php#user@pass`
-  - `https://site.com/wp-login.php#user@pass@extra`
-  - `https://site.com/wp-login.php : user : pass`
-- Multithreading — jumlah thread bisa ditentukan
-- Output hasil ke file `result.txt` (atau nama lain sesuai input)
-- Warna terminal dengan `colorama`
-- Kompatibel Windows & Linux (dengan `clear` / `cls` otomatis)
+✅ Scan file-file `.txt` dalam folder tertentu  
+✅ Menangkap kombinasi **URL + username + password** dari berbagai format:
+```
+
+[https://site.com/wp-login.php\:user\:pass](https://site.com/wp-login.php:user:pass)
+[https://site.com/wp-login.php|user|pass](https://site.com/wp-login.php|user|pass)
+[https://site.com/wp-login.php#user@pass](https://site.com/wp-login.php#user@pass)
+[https://site.com/wp-login.php#user@pass@extra](https://site.com/wp-login.php#user@pass@extra)
+[https://site.com/wp-login.php](https://site.com/wp-login.php) : user : pass
+
+````
+
+✅ Pilihan format output:
+- `wp-login.php|user|pass`
+- `wp-login.php@user#pass`
+
+✅ **Multithreading** — jumlah thread bisa diatur sesuai kebutuhan  
+✅ Output hasil ke file (misal: `result.txt`) sesuai format pilihan  
+✅ Warna terminal dengan `colorama`:
+- `[` dan `]` **putih**
+- `+` dan `FOUND` **hijau**
+
+✅ Kompatibel **Windows & Linux** (dengan clear/cls otomatis)  
+✅ Clean terminal output — tanpa pesan pemrosesan file  
 
 ---
 
 ## 📦 Requirement
 
-- Python 3.x
+- **Python 3.x**
 - Modul:
-  - `colorama`
-
-Install dependensi:
-```bash
-pip install colorama
+  ```bash
+  pip install colorama
 ````
 
 ---
@@ -38,55 +57,89 @@ pip install colorama
 Jalankan skrip:
 
 ```bash
-python script.py
+python wordpress_parser.py
 ```
 
-Ikuti prompt:
+Ikuti prompt di terminal:
 
 1. Masukkan folder yang berisi file `.txt`
-2. Masukkan nama file hasil (contoh: `result.txt`)
-3. Masukkan jumlah thread (disarankan 10-50)
-4. Konfirmasi untuk melanjutkan (y/n)
+2. Masukkan nama file hasil output
+3. Masukkan jumlah thread
+4. Pilih format output:
+
+   ```
+   1. wp-login.php|user|pass
+   2. wp-login.php@user#pass
+   ```
+5. Konfirmasi untuk lanjut `(y/n)`
 
 ---
 
 ## 📂 Contoh Format File Input
 
-Isi file `.txt`:
+Contoh isi file `.txt`:
 
 ```
 https://example.com/wp-login.php:admin:password123
 https://site.net/wp-login.php|root|toor
 https://another.net/wp-login.php#user@pass
+https://test.com/wp-login.php#user@pass1@pass2
+https://example.org/wp-login.php : user : pass
 ```
 
 ---
 
 ## 📜 Output
 
-Setiap hasil yang ditemukan akan dicetak ke terminal dan disimpan ke file output.
-
-Contoh hasil di `result.txt`:
+📌 Contoh hasil di terminal:
 
 ```
-https://example.com/wp-login.php#admin@password123
-https://site.net/wp-login.php#roo@toor
-https://another.net/wp-login.php#user@pass
+[+] https://example.com/wp-login.php|admin|password123 [ FOUND ]
+[+] https://example.com/wp-login.php|admin|password123 [ FOUND ]
+[+] https://example.com/wp-login.php|admin|password123 [ FOUND ]
+```
+
+Atau:
+
+```
+[+] https://example.com/wp-login.php@admin#password123 [ FOUND ]
+[+] https://example.com/wp-login.php@admin#password123 [ FOUND ]
+[+] https://example.com/wp-login.php@admin#password123 [ FOUND ]
+```
+
+*(tergantung format pilihan)*
+
+📌 Contoh isi file `result.txt` (Format 1):
+
+```
+http://site.com/wp-login.php|user|pass
+http://site.com/wp-login.php|user|pass
+http://site.com/wp-login.php|user|pass
+http://site.com/wp-login.php|user|pass
+```
+
+Atau (Format 2):
+
+```
+http://site.com/wp-login.php@user#pass
+http://site.com/wp-login.php@user#pass
+http://site.com/wp-login.php@user#pass
+http://site.com/wp-login.php@user#pass
 ```
 
 ---
 
 ## 📊 Catatan
 
-* Semakin banyak file & data, disarankan jumlah thread ditambah
-* Script ini hanya membaca file `.txt` di dalam folder yang kamu tentukan
-* Pastikan format data sesuai pattern regex yang ada agar bisa terdeteksi
+* Support **username berupa email** dan **password karakter spesial** (contoh: `#`, `@`, `&`)
+* Support URL berbasis IP (contoh: `http://8.210.145.197/wp-login.php`)
+* Disarankan gunakan **4-8 thread** untuk performa optimal
+* Hanya membaca file `.txt` di folder yang ditentukan (tanpa subfolder)
+* Pastikan format data sesuai pola regex yang didukung
+* Jika tidak ada kredensial ditemukan, cek kembali isi file
 
 ---
 
 ## 📣 Credit
 
-Dikembangkan oleh **alex\_asmodeus**
-Salt : `alexithema + asmodeus` 🔥
-
----
+Dikembangkan oleh **alex\_asmodeusSalt**
